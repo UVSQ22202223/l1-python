@@ -18,6 +18,7 @@ def secondeEnTemps(seconde):
 
 seconde = secondeEnTemps(100000)
 print(seconde[0],"jours",seconde[1], "heures",seconde[2],"minutes",seconde[3],"secondes" )
+
 """2"""
 def afficheTemps(temps):
     if temps[0]>1 :
@@ -82,6 +83,34 @@ def sommeTemps(temps1,temps2):
 print(sommeTemps((2,3,4,25),(5,22,57,1)))
 
 """5"""
-def proportionTemps(temps,proportion):
-    
-afficheTemps(proportionTemps((2,0,36,0),0.2))
+def proportionTemps(proportion,temps):
+    temps=tempsEnSeconde(temps)
+    prop=temps*proportion
+    final=secondeEnTemps(prop)
+    return temps,proportion,final
+
+
+print(proportionTemps(0.2,(2,0,36,0)))
+
+"""6"""
+def tempsEndate(temps) :
+    tempsa=temps[0]//365
+    tempsj=temps[0]%365+temps[1]
+    return tempsa,tempsj
+tempsa,tempsj=tempsEndate((568,23,34,10))
+
+print((tempsa,tempsj,temps[2],temps[3]))
+
+"""correction"""
+def tempsEndate(temps):
+    jour,heure,min,sec=temps
+    annee=jour//365+1970
+    return(annee,jour,heure,min,sec)
+def afficheDate(date=-1) :
+    annee,jour,heure,min,sec=date
+    print("année",annee,end="")
+    afficheTemps((jour,heure,min,sec))
+
+import time
+print(time.time(1))
+print(time.gmtime(time.time()))
