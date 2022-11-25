@@ -113,4 +113,4 @@ def afficheDate(date=-1) :
 
 import time
 print(time.time(1))
-print(time.gmtime(time.time()))
+print(time.gmtime(time.time(1)))
